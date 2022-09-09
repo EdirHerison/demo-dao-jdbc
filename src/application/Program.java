@@ -30,12 +30,19 @@ public class Program {
 	    }
 	    System.out.print("==============================");
 	    System.out.println();
-	    
+
 	    System.out.println("===== Teste 3: findALl =====");
 	    list = sellerDao.findAll();
 	    for (Seller obj : list) {
 	    	System.out.println(obj);
 	    }
+	    System.out.print("==============================");
+	    System.out.println();
+	    
+	    System.out.println("===== Teste 4: Insert Seller =====");
+	    Seller newSeller = new Seller(null, "Mailo Adriano", "mailon.el@ehsoft.com", new Date(), 4000.0, department);
+	    sellerDao.insert(newSeller);
+	    System.out.println("Inserido! Nova ID = " + newSeller.getId());
 	    System.out.print("==============================");
 	    System.out.println();
 
