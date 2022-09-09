@@ -40,9 +40,17 @@ public class Program {
 	    System.out.println();
 	    
 	    System.out.println("===== Teste 4: Insert Seller =====");
-	    Seller newSeller = new Seller(null, "Mailo Adriano", "mailon.el@ehsoft.com", new Date(), 4000.0, department);
+	    Seller newSeller = new Seller(null, "Lorrane Mafra", "lorrane.el@ehsoft.com", new Date(), 4000.0, department);
 	    sellerDao.insert(newSeller);
 	    System.out.println("Inserido! Nova ID = " + newSeller.getId());
+	    System.out.print("==============================");
+	    System.out.println();
+	    
+	    System.out.println("===== Teste 5: Update Seller =====");
+	    seller = sellerDao.findById(9);
+	    seller.setName("Mailon Adriano");
+	    sellerDao.update(seller);
+	    System.out.println("Cadastro Atualizado");
 	    System.out.print("==============================");
 	    System.out.println();
 
