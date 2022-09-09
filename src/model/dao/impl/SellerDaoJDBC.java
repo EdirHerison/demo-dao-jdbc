@@ -52,19 +52,9 @@ public class SellerDaoJDBC implements SellerDao {
 			
 			//instanciando a tabela para que se tornem objetos
 			if(rs.next()) {
-				Department dep = new Department();
-				dep.setId(rs.getInt("DepartmentId"));
-				dep.setName(rs.getString("DepName"));
-				Seller obj = new Seller();
-				obj.setId(rs.getInt("Id"));
-				obj.setName(rs.getString("Nome"));
-				obj.setEmail(rs.getString("Email"));
-				obj.setBaseSalary(rs.getDouble("BaseSalary"));
-				obj.setBirthDate(rs.getDate("BirthDate"));
-				obj.setDepartment(dep); // fazendo a junção das tabelas
-				
-				return obj;
-				
+				Department dep = instantiateDepartment(rs);
+				Seller obj = instantiateSelles(rs, dep);
+				return obj;	
 			}
 			else {
 				return null;
@@ -80,6 +70,26 @@ public class SellerDaoJDBC implements SellerDao {
 		}
 	}
 	
+	private Seller instantiateSelles(ResultSet rs, Department dep) throws SQLException {
+		Seller obj = new Seller();
+		obj.setId(rs.getInt("Id"));
+		obj.setName(rs.getString("Nome"));
+		obj.setEmail(rs.getString("Email"));
+		obj.setBaseSalary(rs.getDouble("BaseSalary"));
+		obj.setBirthDate(rs.getDate("BirthDate"));
+		obj.setDepartment(dep); // fazendo a junção das tabelas
+		return obj;
+	}
+
+
+	private Department instantiateDepartment(ResultSet rs) throws SQLException {
+		    Department dep = new Department();
+			dep.setId(rs.getInt("DepartmentId"));
+			dep.setName(rs.getString("DepName"));
+		return dep;
+	}
+
+
 	@Override
     public List<Seller> findAll() {
 		return null;
