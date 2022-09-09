@@ -12,12 +12,13 @@ public class Program {
 
 	public static void main(String[] args) {
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy"); 
-		Department obj = new Department(1, "Books");
-		Seller sel = new Seller(1,"Edir Herison", "edir.ti@minhaempresa.com.br",
-				new Date(),3500.0, obj);
-		SellerDao sldt = DaoFactory.createSellerDao();
-	
-		System.out.print(sel);
+		
+	    SellerDao sellerDao = DaoFactory.createSellerDao();
+	    
+	    Seller seller = sellerDao.findById(3);
+	    
+	    System.out.println(seller);
+		
 
 	}
 
