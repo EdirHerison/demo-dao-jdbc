@@ -3,6 +3,7 @@ package application;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Scanner;
 
 import model.dao.DaoFactory;
 import model.dao.SellerDao;
@@ -12,7 +13,8 @@ import model.entities.Seller;
 public class Program {
 
 	public static void main(String[] args) {
-		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy"); 
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+		Scanner sc = new Scanner(System.in); 
 		
 	    SellerDao sellerDao = DaoFactory.createSellerDao();
 	    
@@ -40,7 +42,7 @@ public class Program {
 	    System.out.println();
 	    
 	    System.out.println("===== Teste 4: Insert Seller =====");
-	    Seller newSeller = new Seller(null, "Lorrane Mafra", "lorrane.el@ehsoft.com", new Date(), 4000.0, department);
+	    Seller newSeller = new Seller(null, "Ludmila Beatriz", "ludmila.com@ehsoft.com", new Date(), 4000.0, department);
 	    sellerDao.insert(newSeller);
 	    System.out.println("Inserido! Nova ID = " + newSeller.getId());
 	    System.out.print("==============================");
@@ -53,7 +55,17 @@ public class Program {
 	    System.out.println("Cadastro Atualizado");
 	    System.out.print("==============================");
 	    System.out.println();
+	    
+	    System.out.println("===== Teste 6: Delete Seller =====");
+	    System.out.println("Infrome o ID do vendedor a ser deletado: ");
+	    int id = sc.nextInt();
+	    sellerDao.deleteById(id);
+	    System.out.println("Vendedor excluido");
+	    System.out.print("==============================");
+	    System.out.println();
 
+	    
+	    sc.close();
 	}
-
+   
 }
