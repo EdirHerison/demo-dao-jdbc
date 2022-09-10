@@ -37,6 +37,7 @@ public class Program2 {
 		}
 		case 2:{
 			System.out.println("escolheu a opcao 2:");
+			System.out.println("========= Consulta Departmento pod ID ========");
 			System.out.print("Didgite o id do departamento: ");
 			int id = sc.nextInt();
 			dp = departmentDao.findById(id);
@@ -45,11 +46,13 @@ public class Program2 {
 			break;
 		}
 		case 3:{
-			System.out.println("escolheu 3:");
+			System.out.println("escolheu opcao 3:");
+			System.out.println("========= Consultar todos os Department ========");
 			break;
 		}
 		case 4:{
 			System.out.println("escolheu opcao 4:");
+			System.out.println("========= Atualizar Departmento ========");
 			System.out.print("Didgite o id do departamento: ");
 			int id = sc.nextInt();
 			dp = departmentDao.findById(id);
@@ -57,13 +60,19 @@ public class Program2 {
 			String nome = sc.next();
 			dp.setName(nome);
 			departmentDao.update(dp);
-			
+			System.out.println("Nome Aletrado com sucesso !!!");
 			break;
 		}
 		case 5:{
 			System.out.println("escolheu 5:");
+			System.out.println("========= Deletar Departmento ========");
+			System.out.println("Infrome o ID do Departament a ser deletado: ");
+		    int id = sc.nextInt();
+		    departmentDao.deleteById(id);
+		    System.out.println("Departamento Deletado");
 			break;
 		}
+		
 		
 		}
 		
