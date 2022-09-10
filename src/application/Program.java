@@ -1,6 +1,6 @@
 package application;
 
-import java.text.SimpleDateFormat;
+
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
@@ -13,7 +13,6 @@ import model.entities.Seller;
 public class Program {
 
 	public static void main(String[] args) {
-		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 		Scanner sc = new Scanner(System.in); 
 		
 	    SellerDao sellerDao = DaoFactory.createSellerDao();
@@ -60,7 +59,7 @@ public class Program {
 	    System.out.println("Infrome o ID do vendedor a ser deletado: ");
 	    int id = sc.nextInt();
 	    sellerDao.deleteById(id);
-	    System.out.println("Vendedor excluido");
+	    System.out.println("Deletado");
 	    System.out.print("==============================");
 	    System.out.println();
 
