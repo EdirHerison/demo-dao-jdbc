@@ -1,10 +1,12 @@
 package application;
 
+import java.util.List;
 import java.util.Scanner;
 
 import model.dao.DaoFactory;
 import model.dao.DepartmentDao;
 import model.entities.Department;
+import model.entities.Seller;
 
 public class Program2 {
 
@@ -48,6 +50,10 @@ public class Program2 {
 		case 3:{
 			System.out.println("escolheu opcao 3:");
 			System.out.println("========= Consultar todos os Department ========");
+			List<Department> list = departmentDao.findAll();
+			for (Department obj : list) {
+		    	System.out.println(obj);
+		    }
 			break;
 		}
 		case 4:{
